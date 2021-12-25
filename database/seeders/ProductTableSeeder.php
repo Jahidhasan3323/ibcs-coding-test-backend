@@ -16,7 +16,9 @@ class ProductTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-
+        if (!file_exists(storage_path().'/app/public/product')) {
+            mkdir(storage_path().'/app/public/product');
+        }
         foreach (range(1, 20) as $index)  {
             DB::table('products')->insert([
                 'name' => $faker->city,

@@ -2,12 +2,19 @@
 
 ## Installation
 
+Clone the repository
+
+    git clone https://github.com/Jahidhasan3323/ibcs-coding-test-backend.git
+
+Switch to the repo folder
+
+    cd ecommerce-backend
 
 Install all the dependencies using composer
 
     composer install
 
-Copy the example env file and make the required configuration changes in the .env file
+Copy the example env file and make the required configuration changes in the .env file for mail and other stubs
 
     cp .env.example .env
 
@@ -18,6 +25,10 @@ Generate a new application key
 Run migration and seed for user and product
 
     php artisan migrate --seed
+
+Run storage link command
+
+ ```php artisan storage:link```
 
 Start the local development server
 
