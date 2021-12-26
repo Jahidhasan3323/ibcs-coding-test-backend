@@ -41,9 +41,11 @@ class OrderStatusNotify extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject("Order Status Updated, Order No: {$this->notify_details['order_id']}")
+            ->greeting($this->notify_details['greeting'])
+            ->line($this->notify_details['body'])
+            ->action($this->notify_details['actionText'], $this->notify_details['actionURL'])
+            ->line($this->notify_details['thanks']);
     }
 
     /**

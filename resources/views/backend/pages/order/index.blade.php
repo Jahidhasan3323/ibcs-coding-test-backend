@@ -111,6 +111,8 @@
 @section('script')
     <script>
         $(".orderStatus").change(function () {
+            $(this).attr('disabled', 'true')
+            $(this).parent().append("<i class='spinner-border spinner-border-sm'></i>")
             let status =$(this).val()
             let orderId = $(this).parent().find('#orderId').val()
             $.ajax({
@@ -121,6 +123,7 @@
                     window.location.reload()
                 },
                 error:function(){
+                    window.location.reload()
                 }
             });
         });
